@@ -177,7 +177,7 @@ void CFRSHELLApp::OnFrMod_InCnd()
 
 BOOL CFRSHELLApp::OnIdle( LONG lCount )
 {
-    CWinApp::OnIdle( lCount );
+  /*  CWinApp::OnIdle( lCount );
 
     int i = 5;
 
@@ -185,8 +185,7 @@ BOOL CFRSHELLApp::OnIdle( LONG lCount )
     {
        POSITION pos = m_templateList.GetHeadPosition();
        while (pos != NULL)
-       {
-          CMultiDocTemplate* pTemplate = (CMultiDocTemplate*)m_templateList.GetNext(pos);
+       {  CMultiDocTemplate* pTemplate = (CMultiDocTemplate*)m_templateList.GetNext(pos);
 
           POSITION dPos = pTemplate->GetFirstDocPosition();
           while( dPos != NULL )
@@ -194,20 +193,19 @@ BOOL CFRSHELLApp::OnIdle( LONG lCount )
              CDocument* doc = (CDocument*)pTemplate->GetNextDoc(dPos);
              doc->OnIdle();
 
-             //if( i ) continue;
+             if( i ) continue;
 
-             POSITION vPos = doc->GetFirstViewPosition();
-             while( vPos != NULL )
-             {
-                CView* view = (CView*)doc->GetNextView( vPos );
-                view->Invalidate( FALSE );
-                view->UpdateWindow();
-             }
+                POSITION vPos = doc->GetFirstViewPosition();
+                while( vPos != NULL )
+                {
+                    CView* view = (CView*)doc->GetNextView( vPos );
+                    view->Invalidate( FALSE );
+                    view->UpdateWindow();
+                }
           }
-       }
-    }
-
-    return TRUE;
+      }
+  }*/
+  return TRUE;
 }
 
 //

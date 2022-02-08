@@ -23,8 +23,8 @@ BEGIN_MESSAGE_MAP(CFrModInCndDlg, CDialog)
     //}}AFX_MSG_MAP
 END_MESSAGE_MAP();
 
-CFrModInCndDlg::CFrModInCndDlg(CWnd* pParent /*=NULL*/)
-    : CDialog(CFrModInCndDlg::IDD, pParent)
+CFrModInCndDlg::CFrModInCndDlg(CWnd* pParent =NULL)
+ //   : CDialog(CFrModInCndDlg::IDD, pParent)
 {
 
 }

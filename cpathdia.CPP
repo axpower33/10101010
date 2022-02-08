@@ -18,7 +18,7 @@ BEGIN_MESSAGE_MAP(CPATHDialog, CDialog)
     //}}AFX_MSG_MAP
 END_MESSAGE_MAP();
 
-CPATHDialog::CPATHDialog(CWnd* pParent /*=NULL*/)
+CPATHDialog::CPATHDialog(CWnd* pParent =NULL)
     //: CDialog(CPATHDialog::IDD, pParent)
 {
 

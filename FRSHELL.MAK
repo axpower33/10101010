@@ -1,5 +1,5 @@
 ORIGIN		= Symantec C++
-ORIGIN_VER	= Version 7.20
+ORIGIN_VER	= Version 7.22
 VERSION		= RELEASE
 
 !IFDEF SUB_DEBUG
@@ -16,6 +16,7 @@ PROJTYPE	= EXE
 
 CC		= SC
 CPP		= SPP
+JAVAC		= sj
 MAKE		= SMAKE
 RC		= RCC
 HC		= HC31
@@ -47,7 +48,12 @@ HEADERS		= ..\..\..\..\..\SC\INCLUDE\win32\winver.h ..\..\..\..\..\SC\INCLUDE\wi
 		..\..\..\..\..\SC\INCLUDE\commdlg.h ..\..\..\..\..\SC\INCLUDE\win32\commdlg.h FRSHELL.h ..\..\..\..\..\SC\INCLUDE\fcntl.h  \
 		..\..\..\..\..\SC\INCLUDE\conio.h ..\..\..\..\..\SC\INCLUDE\io.h ..\..\..\..\..\SC\INCLUDE\sys\stat.h ..\..\..\..\..\SC\INCLUDE\math.h  \
 		..\..\..\..\..\SC\INCLUDE\alloc.h ..\..\..\..\..\SC\INCLUDE\direct.h fr3ddoc.h fr3dvw.h  \
-		mainfrm.h cfrmodin.h cpathdia.h resource.h 
+		mainfrm.h cfrmodin.h cpathdia.h resource.h  \
+		..\..\..\..\..\SC\mfc\include\32-bit\afxwin.h ..\..\..\..\..\SC\mfc\include\32-bit\afx.h ..\..\..\..\..\SC\mfc\include\32-bit\afxver_.h ..\..\..\..\..\SC\mfc\include\32-bit\afxv_w32.h  \
+		..\..\..\..\..\SC\include\stddef.h ..\..\..\..\..\SC\include\crtdbg.h ..\..\..\..\..\SC\mfc\include\32-bit\afxcoll.h ..\..\..\..\..\SC\mfc\include\32-bit\afxstat_.h  \
+		..\..\..\..\..\SC\mfc\include\afxtls_.h ..\..\..\..\..\SC\mfc\include\32-bit\afxtls_.h ..\..\..\..\..\SC\mfc\include\32-bit\afxres.h ..\..\..\..\..\SC\mfc\include\32-bit\afxmsg_.h  \
+		..\..\..\..\..\SC\mfc\include\32-bit\afxdd_.h ..\..\..\..\..\SC\mfc\include\32-bit\afxext.h ..\..\..\..\..\SC\mfc\include\32-bit\afxdlgs.h ..\..\..\..\..\SC\include\richedit.h  \
+		..\..\..\..\..\SC\include\win32\RICHEDIT.H ..\..\..\..\..\SC\include\win32\VER.H ..\..\..\..\..\SC\include\ver.h ..\..\..\..\..\SC\mfc\include\32-bit\winres.h 
 
 DEFFILE		= frshell.DEF
 
@@ -57,12 +63,14 @@ CREATEOUTPUTDIR	=
 TARGETDIR	= .
 CREATETARGETDIR	=
 
-LIBS		= KERNEL32.LIB GDI32.LIB USER32.LIB NAFXCWD.LIB COMDLG32.LIB SHELL32.LIB ADVAPI32.LIB MFCANS32.LIB MFCUIA32.LIB WINSPOOL.LIB ADVAPI32.LIB 
+SYMROOT		=  .\stdafx 
+SYMS		= $(SYMROOT).SYM 
+LIBS		= KERNEL32.LIB GDI32.LIB USER32.LIB 
 
-CFLAGS		=  -cpp -Ae -mn -C -o+time -WA -ff -S -3 -a8 -c -H -HO- -g -gd 
-CFLAGS_1	=  -cpp -Ae -mn -C -o+time -WA -ff -S -4 -a8 -c -H -HO- -l -g -gd
+CFLAGS		=  -cpp -Ae -mn -C -o+time -WA -ff -S -3 -a8 -c -H -HO- -g 
+CFLAGS_1	=  -cpp -Ae -mn -C -o+time -WA -ff -S -4 -a8 -c -H -HO- -l -g
 DEFINES_1	= -D_DEBUG=1 -D_X86_=1 -D_MT=1 -D_MBCS=1
-LFLAGS		=  /CO /NOI /DE /XN /NT /ENTRY:WinMainCRTStartup /VERS:1.0 /BAS:4194304 /A:512 /RC   :FRSHELL.RES
+LFLAGS		=  /CO /NOI /DE /NOPACKF /XN /NT /ENTRY:WinMainCRTStartup /VERS:1.0 /BAS:4194304 /A:512 /RC   :FRSHELL.RES
 DEFINES		= -D_DEBUG=1 -D_X86_=1 -D_MT=1 -D_MBCS=1
 !ELSE
 OUTPUTDIR	= .
@@ -70,9 +78,11 @@ CREATEOUTPUTDIR	=
 TARGETDIR	= .
 CREATETARGETDIR	=
 
-LIBS		= KERNEL32.LIB GDI32.LIB USER32.LIB NAFXCW.LIB COMDLG32.LIB SHELL32.LIB ADVAPI32.LIB MFCANS32.LIB MFCUIA32.LIB WINSPOOL.LIB ADVAPI32.LIB 
+SYMROOT		=  .\stdafx 
+SYMS		= $(SYMROOT).SYM 
+LIBS		= KERNEL32.LIB GDI32.LIB USER32.LIB 
 
-CFLAGS		=  -cpp -Ae -mn -o+time -WA -ff -GT65535 -3 -a8 -c -H -HO- -g -gd -gf -gh -gg 
+CFLAGS		=  -cpp -Ae -mn -o+time -WA -ff -GT65535 -3 -a8 -c -H -HO- -gh -gg 
 CFLAGS_1	=  -cpp -Ae -mn -o+time -WA -3 -a8 -c -H -HO-
 DEFINES_1	= -D_X86_=1 -D_MT=1 -D_MBCS=1
 LFLAGS		=  /NOI /DE /PACKF /XN /NT /ENTRY:WinMainCRTStartup /VERS:1.0 /BAS:4194304 /A:512 /RC   :FRSHELL.RES
@@ -83,7 +93,7 @@ HFLAGS		= $(CFLAGS)
 MFLAGS		= MASTERPROJ=$(PROJ) 
 LIBFLAGS	=  /C 
 RESFLAGS	=  -32 
-DEBUGGERFLAGS	=  
+DEBUGGERFLAGS	=  -STARTUP 
 AFLAGS		= $(CFLAGS) 
 HELPFLAGS	= 
 
@@ -103,8 +113,6 @@ OBJS		= mainfrm.OBJ fr3ddoc.OBJ FRSHELL.OBJ  \
 RCFILES		=  FRSHELL.RES 
 
 RESFILES	= 
-
-SYMS		=  .\stdafx.SYM 
 
 HELPFILES	= 
 
@@ -157,8 +165,33 @@ BATS		=
 .OBJ.COD:
 	$(DISASM) $*.OBJ -c
 
+!IF $(DEBUG)
 .OBJ.EXE:
-	$(LNK) $(LFLAGS) @$(PROJ).LNK
+		$(LNK) $(LFLAGS) @<<$(PROJ).LNK
+.\stdafx.PCO+
+mainfrm.OBJ+
+fr3ddoc.OBJ+
+FRSHELL.OBJ+
+fr3dvw.OBJ
+$$SCW$$.EXE
+NUL
+KERNEL32.LIB GDI32.LIB USER32.LIB 
+frshell.DEF;
+<<
+!ELSE
+.OBJ.EXE:
+		$(LNK) $(LFLAGS) @$(PROJ).LNK<<
+.\stdafx.PCO+
+mainfrm.OBJ+
+fr3ddoc.OBJ+
+FRSHELL.OBJ+
+fr3dvw.OBJ
+$$SCW$$.EXE
+NUL
+KERNEL32.LIB GDI32.LIB USER32.LIB 
+frshell.DEF;
+<<
+!ENDIF
 
 .RTF.HLP:
 	$(HC) $(HELPFLAGS) $*.HPJ
@@ -180,31 +213,63 @@ BATS		=
 
 
 
-all:	createdir $(PRECOMPILE) $(SYMS) $(OBJS) $(INCLUDEDOBJS) $(POSTCOMPILE) $(TARGETDIR)\$(PROJ).$(PROJTYPE) $(POSTLINK) _done
+all:	noteout createdir $(PRECOMPILE) $(SYMS) $(OBJS) $(INCLUDEDOBJS) $(POSTCOMPILE) $(TARGETDIR)\$(PROJ).$(PROJTYPE) $(POSTLINK) _done
+
+
+all2:	createdir $(PRECOMPILE) $(SYMS) $(OBJS) $(INCLUDEDOBJS) $(POSTCOMPILE) $(TARGETDIR)\$(PROJ).$(PROJTYPE) $(POSTLINK) _done
+
+noteout:
+	REM Output to $(OUTPUTDIR)
 
 createdir:
 	$(CREATEOUTPUTDIR)
 	$(CREATETARGETDIR)
-
+	
 $(TARGETDIR)\$(PROJ).$(PROJTYPE): $(SYMS) $(OBJS) $(INCLUDEDOBJS) $(RCFILES) $(RESFILES) $(HELPFILES) $(DEFFILE)
 			-del $(TARGETDIR)\$(PROJ).$(PROJTYPE)
-			$(LNK) $(LFLAGS) @$(PROJ).LNK;
+!IF $(DEBUG)
+		$(LNK) $(LFLAGS) @<<$(PROJ).LNK
+.\stdafx.PCO+
+mainfrm.OBJ+
+fr3ddoc.OBJ+
+FRSHELL.OBJ+
+fr3dvw.OBJ
+$$SCW$$.EXE
+NUL
+KERNEL32.LIB GDI32.LIB USER32.LIB 
+frshell.DEF;
+<<
+!ELSE
+		$(LNK) $(LFLAGS) @<<$(PROJ).LNK
+.\stdafx.PCO+
+mainfrm.OBJ+
+fr3ddoc.OBJ+
+FRSHELL.OBJ+
+fr3dvw.OBJ
+$$SCW$$.EXE
+NUL
+KERNEL32.LIB GDI32.LIB USER32.LIB 
+frshell.DEF;
+<<
+!ENDIF
+
 			-ren $(TARGETDIR)\$$SCW$$.$(PROJTYPE) $(PROJ).$(PROJTYPE)
 			-echo $(TARGETDIR)\$(PROJ).$(PROJTYPE) built
 
 _done:
-		-echo $(PROJ).$(PROJTYPE) done
+		REM  Project is up to date
 
 buildall:	clean	all
 
 
 clean:
 		-del $(TARGETDIR)\$$SCW$$.$(PROJTYPE)
-		-del $(TARGETDIR)\$(PROJ).CLE
+		-del $(PROJ).CLE
 		-del $(OUTPUTDIR)\SCPH.SYM
 		-del FRSHELL.dpd
 		-del $(OBJS)
-		-del .\stdafx.SYM
+		-del $(SYMROOT).SYM
+		-del $(SYMROOT).PCO
 		-del FRSHELL.RES
 
 cleanres:
@@ -214,7 +279,32 @@ res:		cleanres $(RCFILES) all
 
 
 link:
-		$(LNK) $(LFLAGS) @$(PROJ).LNK;
+!IF $(DEBUG)
+		$(LNK) $(LFLAGS) @<<$(PROJ).LNK
+.\stdafx.PCO+
+mainfrm.OBJ+
+fr3ddoc.OBJ+
+FRSHELL.OBJ+
+fr3dvw.OBJ
+$$SCW$$.EXE
+NUL
+KERNEL32.LIB GDI32.LIB USER32.LIB 
+frshell.DEF;
+<<
+!ELSE
+		$(LNK) $(LFLAGS) @<<$(PROJ).LNK
+.\stdafx.PCO+
+mainfrm.OBJ+
+fr3ddoc.OBJ+
+FRSHELL.OBJ+
+fr3dvw.OBJ
+$$SCW$$.EXE
+NUL
+KERNEL32.LIB GDI32.LIB USER32.LIB 
+frshell.DEF;
+<<
+!ENDIF
+
 		-del $(TARGETDIR)\$(PROJ).$(PROJTYPE)
 		-ren $(TARGETDIR)\$$SCW$$.$(PROJTYPE) $(PROJ).$(PROJTYPE)
 
@@ -229,8 +319,8 @@ FRSHELL.OBJ:	FRSHELL.cpp
 		$(CC) $(CFLAGS_1) $(DEFINES_1) $(INCLUDES) -oFRSHELL.obj FRSHELL.cpp
 
 
-.\stdafx.SYM: stdafx.h
-	$(CC) $(HFLAGS) $(DEFINES) $(INCLUDES) -HF.\stdafx.SYM -o.\stdafx.OBJ stdafx.h
+$(SYMROOT).SYM: stdafx.h
+	$(CC) $(HFLAGS) $(DEFINES) $(INCLUDES) -HF$(SYMROOT).SYM -o$(SYMROOT).PCO stdafx.h
 
 
 

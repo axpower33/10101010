@@ -113,20 +113,20 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
         return 0;
 }
 
-//
+//(CDumpContext& dc) const
+//{
+//        CFrameWnd::Dump(dc);
+//}
+
+//void CMainFrame::AssertValid() const
+//{
+//        CFrameWnd::AssertValid();
+//}
 // CMainFrame debug diagnostics
 //
 
 #ifdef _DEBUG
-void CMainFrame::Dump(CDumpContext& dc) const
-{
-        CFrameWnd::Dump(dc);
-}
-
-void CMainFrame::AssertValid() const
-{
-        CFrameWnd::AssertValid();
-}
+void CMainFrame::Dump
 
 
 
