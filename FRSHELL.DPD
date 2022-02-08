@@ -1,0 +1,38 @@
+# Symantec SC++ generated .dpd file. V: 7200
+mainfrm.OBJ: \
+	mainfrm.cpp \
+	FRSHELL.h \
+	resource.h \
+	cfrmodin.h \
+	cpathdia.h \
+	mainfrm.h 
+fr3ddoc.OBJ: \
+	fr3ddoc.cpp \
+	stdafx.h \
+	..\..\..\..\..\SC\INCLUDE\win32\pshpack1.h \
+	..\..\..\..\..\SC\INCLUDE\win32\poppack.h \
+	FRSHELL.h \
+	resource.h \
+	cfrmodin.h \
+	cpathdia.h \
+	fr3ddoc.h 
+frshell.OBJ: \
+	frshell.cpp \
+	stdafx.h \
+	..\..\..\..\..\SC\INCLUDE\win32\pshpack1.h \
+	..\..\..\..\..\SC\INCLUDE\win32\poppack.h \
+	FRSHELL.h \
+	resource.h \
+	cfrmodin.h \
+	cpathdia.h \
+	mainfrm.h \
+	fr3ddoc.h \
+	fr3dvw.h 
+fr3dvw.OBJ: \
+	fr3dvw.cpp \
+	FRSHELL.h \
+	resource.h \
+	cfrmodin.h \
+	cpathdia.h \
+	fr3ddoc.h \
+	fr3dvw.h 
