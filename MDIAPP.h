@@ -60,7 +60,7 @@ public:
 };
 
 extern CFRDlg FrDlg;
-extern CMDIAPPApp theApp;
+extern CMDIAPPApp NEAR theApp;
 
 // VB-Event extern declarations
 

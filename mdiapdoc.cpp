@@ -40,6 +40,7 @@ int E=100;
 float C_SI=1/(4*M_PI*E0*E);
 float eQulon=1.6E-19;
 char getcd[128];
+bool vx=false;
 
 CMDIAPPDoc::CMDIAPPDoc()
 {
@@ -64,17 +65,23 @@ CMDIAPPDoc::~CMDIAPPDoc()
 }
 
 BOOL CMDIAPPDoc::OnNewDocument()
-{ if (!CDocument::OnNewDocument())
-  {
-    return FALSE;
-  }
-  else
-  { needCharge=true;
+{
+    CDocument::OnNewDocument();
+    if (!vx)
+    {
+        N=60;
+        dt=2e-5;
+        vx=true;
+    }
+    else
+    {
+        FrDlg.DoModal();
+        N=FrDlg.m_Npat;
+        dt=FrDlg.m_dt;
 
-    FrDlg.DoModal();
+    }
 
-    N=FrDlg.m_Npat;
-    dt=FrDlg.m_dt;
+    needCharge=true;
 
     t=0;
     s=1;
@@ -88,7 +95,7 @@ BOOL CMDIAPPDoc::OnNewDocument()
     MakeArray(N);
     InitParticle();
     InitAgr();
-  }
+
   return TRUE;
 
 }

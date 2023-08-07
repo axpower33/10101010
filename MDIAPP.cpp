@@ -57,7 +57,7 @@ CMDIAPPApp::CMDIAPPApp()
 }
 
 // There is only one instance of the CMDIAPPApp object
-CMDIAPPApp theApp;
+CMDIAPPApp NEAR theApp;
 
 //
 // CMDIAPPApp initialization
