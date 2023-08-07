@@ -15,20 +15,16 @@
 
 class CFRSHELLApp : public CWinApp
 {
-public:
-   CFRSHELLApp();
-
+protected:
+    DECLARE_MESSAGE_MAP()
+    CFRSHELLApp();
     virtual BOOL InitInstance();
     BOOL OnIdle( LONG lCount );
-    DECLARE_MESSAGE_MAP()
-
     afx_msg void OnPathDlg();
     afx_msg void OnAbout();
     afx_msg void OnFrMod_InCnd();
-
 };
 
-extern CFrModInCndDlg* FrMInCnd;
-extern CPATHDialog* CPathDlg;
-
+extern CFrModInCndDlg FrMInCnd;
+extern CPATHDialog CPathDlg;
 

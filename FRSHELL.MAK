@@ -25,37 +25,35 @@ DISASM		= OBJ2ASM
 LNK		= LINK
 DLLS		= 
 
-HEADERS		= ..\..\..\..\..\SC\INCLUDE\win32\winver.h ..\..\..\..\..\SC\INCLUDE\win32\scdefs.h ..\..\..\..\..\SC\MFC\INCLUDE\mfc30\afxres.h  \
-		..\..\..\..\..\SC\MFC\INCLUDE\afxres.h ..\..\..\..\..\SC\INCLUDE\win32\poppack.h ..\..\..\..\..\SC\INCLUDE\win32\pshpack1.h stdafx.h  \
-		..\..\..\..\..\SC\MFC\INCLUDE\afxwin.h ..\..\..\..\..\SC\MFC\INCLUDE\mfc30\afxwin.h ..\..\..\..\..\SC\MFC\INCLUDE\afx.h ..\..\..\..\..\SC\MFC\INCLUDE\mfc30\afx.h  \
-		..\..\..\..\..\SC\MFC\INCLUDE\afxver_.h ..\..\..\..\..\SC\MFC\INCLUDE\mfc30\afxver_.h ..\..\..\..\..\SC\MFC\INCLUDE\afxv_w32.h ..\..\..\..\..\SC\MFC\INCLUDE\mfc30\afxv_w32.h  \
-		..\..\..\..\..\SC\INCLUDE\windows.h ..\..\..\..\..\SC\INCLUDE\win32\windows.h ..\..\..\..\..\SC\INCLUDE\excpt.h ..\..\..\..\..\SC\INCLUDE\stdarg.h  \
-		..\..\..\..\..\SC\INCLUDE\windef.h ..\..\..\..\..\SC\INCLUDE\win32\windef.h ..\..\..\..\..\SC\INCLUDE\winnt.h ..\..\..\..\..\SC\INCLUDE\win32\winnt.h  \
-		..\..\..\..\..\SC\INCLUDE\ctype.h ..\..\..\..\..\SC\INCLUDE\pshpack4.h ..\..\..\..\..\SC\INCLUDE\win32\pshpack4.h ..\..\..\..\..\SC\INCLUDE\poppack.h  \
-		..\..\..\..\..\SC\INCLUDE\string.h ..\..\..\..\..\SC\INCLUDE\winbase.h ..\..\..\..\..\SC\INCLUDE\win32\winbase.h ..\..\..\..\..\SC\INCLUDE\winerror.h  \
-		..\..\..\..\..\SC\INCLUDE\win32\winerror.h ..\..\..\..\..\SC\INCLUDE\wingdi.h ..\..\..\..\..\SC\INCLUDE\win32\wingdi.h ..\..\..\..\..\SC\INCLUDE\pshpack1.h  \
-		..\..\..\..\..\SC\INCLUDE\pshpack2.h ..\..\..\..\..\SC\INCLUDE\win32\pshpack2.h ..\..\..\..\..\SC\INCLUDE\winuser.h ..\..\..\..\..\SC\INCLUDE\win32\winuser.h  \
-		..\..\..\..\..\SC\INCLUDE\winnls.h ..\..\..\..\..\SC\INCLUDE\win32\winnls.h ..\..\..\..\..\SC\INCLUDE\wincon.h ..\..\..\..\..\SC\INCLUDE\win32\wincon.h  \
-		..\..\..\..\..\SC\INCLUDE\winver.h ..\..\..\..\..\SC\INCLUDE\winreg.h ..\..\..\..\..\SC\INCLUDE\win32\winreg.h ..\..\..\..\..\SC\INCLUDE\winnetwk.h  \
-		..\..\..\..\..\SC\INCLUDE\win32\winnetwk.h ..\..\..\..\..\SC\INCLUDE\winsvc.h ..\..\..\..\..\SC\INCLUDE\win32\winsvc.h ..\..\..\..\..\SC\INCLUDE\mcx.h  \
-		..\..\..\..\..\SC\INCLUDE\win32\mcx.h ..\..\..\..\..\SC\INCLUDE\imm.h ..\..\..\..\..\SC\INCLUDE\win32\imm.h ..\..\..\..\..\SC\INCLUDE\commctrl.h  \
-		..\..\..\..\..\SC\INCLUDE\win32\commctrl.h ..\..\..\..\..\SC\INCLUDE\prsht.h ..\..\..\..\..\SC\INCLUDE\win32\prsht.h ..\..\..\..\..\SC\INCLUDE\tchar.h  \
-		..\..\..\..\..\SC\INCLUDE\mbstring.h ..\..\..\..\..\SC\INCLUDE\mbctype.h ..\..\..\..\..\SC\INCLUDE\stdio.h ..\..\..\..\..\SC\INCLUDE\stdlib.h  \
-		..\..\..\..\..\SC\INCLUDE\time.h ..\..\..\..\..\SC\MFC\INCLUDE\afxcoll.h ..\..\..\..\..\SC\MFC\INCLUDE\mfc30\afxcoll.h ..\..\..\..\..\SC\MFC\INCLUDE\afxstat_.h  \
-		..\..\..\..\..\SC\MFC\INCLUDE\mfc30\afxstat_.h ..\..\..\..\..\SC\INCLUDE\shellapi.h ..\..\..\..\..\SC\INCLUDE\win32\shellapi.h ..\..\..\..\..\SC\MFC\INCLUDE\afxmsg_.h  \
-		..\..\..\..\..\SC\MFC\INCLUDE\mfc30\afxmsg_.h ..\..\..\..\..\SC\MFC\INCLUDE\afxdd_.h ..\..\..\..\..\SC\MFC\INCLUDE\mfc30\afxdd_.h ..\..\..\..\..\SC\INCLUDE\limits.h  \
-		..\..\..\..\..\SC\MFC\INCLUDE\afxext.h ..\..\..\..\..\SC\MFC\INCLUDE\mfc30\afxext.h ..\..\..\..\..\SC\MFC\INCLUDE\afxdlgs.h ..\..\..\..\..\SC\MFC\INCLUDE\mfc30\afxdlgs.h  \
-		..\..\..\..\..\SC\INCLUDE\commdlg.h ..\..\..\..\..\SC\INCLUDE\win32\commdlg.h FRSHELL.h ..\..\..\..\..\SC\INCLUDE\fcntl.h  \
-		..\..\..\..\..\SC\INCLUDE\conio.h ..\..\..\..\..\SC\INCLUDE\io.h ..\..\..\..\..\SC\INCLUDE\sys\stat.h ..\..\..\..\..\SC\INCLUDE\math.h  \
-		..\..\..\..\..\SC\INCLUDE\alloc.h ..\..\..\..\..\SC\INCLUDE\direct.h fr3ddoc.h fr3dvw.h  \
-		mainfrm.h cfrmodin.h cpathdia.h resource.h  \
-		..\..\..\..\..\SC\mfc\include\32-bit\afxwin.h ..\..\..\..\..\SC\mfc\include\32-bit\afx.h ..\..\..\..\..\SC\mfc\include\32-bit\afxver_.h ..\..\..\..\..\SC\mfc\include\32-bit\afxv_w32.h  \
-		..\..\..\..\..\SC\include\stddef.h ..\..\..\..\..\SC\include\crtdbg.h ..\..\..\..\..\SC\mfc\include\32-bit\afxcoll.h ..\..\..\..\..\SC\mfc\include\32-bit\afxstat_.h  \
-		..\..\..\..\..\SC\mfc\include\afxtls_.h ..\..\..\..\..\SC\mfc\include\32-bit\afxtls_.h ..\..\..\..\..\SC\mfc\include\32-bit\afxres.h ..\..\..\..\..\SC\mfc\include\32-bit\afxmsg_.h  \
-		..\..\..\..\..\SC\mfc\include\32-bit\afxdd_.h ..\..\..\..\..\SC\mfc\include\32-bit\afxext.h ..\..\..\..\..\SC\mfc\include\32-bit\afxdlgs.h ..\..\..\..\..\SC\include\richedit.h  \
-		..\..\..\..\..\SC\include\win32\RICHEDIT.H ..\..\..\..\..\SC\include\win32\VER.H ..\..\..\..\..\SC\include\ver.h ..\..\..\..\..\SC\mfc\include\32-bit\winres.h 
+HEADERS		= ..\..\..\..\..\SC\include\stdlib.h ..\..\..\..\..\SC\include\fcntl.h ..\..\..\..\..\SC\include\conio.h  \
+		..\..\..\..\..\SC\include\stdio.h ..\..\..\..\..\SC\include\io.h ..\..\..\..\..\SC\include\sys\stat.h ..\..\..\..\..\SC\include\math.h  \
+		..\..\..\..\..\SC\include\string.h ..\..\..\..\..\SC\include\alloc.h ..\..\..\..\..\SC\include\direct.h stdafx.h  \
+		..\..\..\..\..\SC\mfc\include\afxwin.h ..\..\..\..\..\SC\mfc\include\32-bit\afxwin.h ..\..\..\..\..\SC\mfc\include\afx.h ..\..\..\..\..\SC\mfc\include\32-bit\afx.h  \
+		..\..\..\..\..\SC\mfc\include\afxver_.h ..\..\..\..\..\SC\mfc\include\32-bit\afxver_.h ..\..\..\..\..\SC\mfc\include\afxv_w32.h ..\..\..\..\..\SC\mfc\include\32-bit\afxv_w32.h  \
+		..\..\..\..\..\SC\include\windows.h ..\..\..\..\..\SC\include\win32\scdefs.h ..\..\..\..\..\SC\include\win32\WINDOWS.H ..\..\..\..\..\SC\include\excpt.h  \
+		..\..\..\..\..\SC\include\stdarg.h ..\..\..\..\..\SC\include\windef.h ..\..\..\..\..\SC\include\win32\WINDEF.H ..\..\..\..\..\SC\include\winnt.h  \
+		..\..\..\..\..\SC\include\win32\WINNT.H ..\..\..\..\..\SC\include\ctype.h ..\..\..\..\..\SC\include\pshpack4.h ..\..\..\..\..\SC\include\win32\pshpack4.h  \
+		..\..\..\..\..\SC\include\poppack.h ..\..\..\..\..\SC\include\win32\poppack.h ..\..\..\..\..\SC\include\win32\pshpack2.h ..\..\..\..\..\SC\include\winbase.h  \
+		..\..\..\..\..\SC\include\win32\WINBASE.H ..\..\..\..\..\SC\include\winerror.h ..\..\..\..\..\SC\include\win32\WINERROR.H ..\..\..\..\..\SC\include\wingdi.h  \
+		..\..\..\..\..\SC\include\win32\WINGDI.H ..\..\..\..\..\SC\include\pshpack1.h ..\..\..\..\..\SC\include\win32\pshpack1.h ..\..\..\..\..\SC\include\pshpack2.h  \
+		..\..\..\..\..\SC\include\winuser.h ..\..\..\..\..\SC\include\win32\WINUSER.H ..\..\..\..\..\SC\include\winnls.h ..\..\..\..\..\SC\include\win32\WINNLS.H  \
+		..\..\..\..\..\SC\include\wincon.h ..\..\..\..\..\SC\include\win32\WINCON.H ..\..\..\..\..\SC\include\winver.h ..\..\..\..\..\SC\include\win32\WINVER.H  \
+		..\..\..\..\..\SC\include\winreg.h ..\..\..\..\..\SC\include\win32\WINREG.H ..\..\..\..\..\SC\include\winnetwk.h ..\..\..\..\..\SC\include\win32\WINNETWK.H  \
+		..\..\..\..\..\SC\include\winsvc.h ..\..\..\..\..\SC\include\win32\WINSVC.H ..\..\..\..\..\SC\include\mcx.h ..\..\..\..\..\SC\include\win32\MCX.H  \
+		..\..\..\..\..\SC\include\imm.h ..\..\..\..\..\SC\include\win32\IMM.H ..\..\..\..\..\SC\include\commctrl.h ..\..\..\..\..\SC\include\win32\COMMCTRL.H  \
+		..\..\..\..\..\SC\include\prsht.h ..\..\..\..\..\SC\include\win32\PRSHT.H ..\..\..\..\..\SC\include\tchar.h ..\..\..\..\..\SC\include\mbstring.h  \
+		..\..\..\..\..\SC\include\mbctype.h ..\..\..\..\..\SC\include\time.h ..\..\..\..\..\SC\include\limits.h ..\..\..\..\..\SC\include\stddef.h  \
+		..\..\..\..\..\SC\include\crtdbg.h ..\..\..\..\..\SC\mfc\include\afxcoll.h ..\..\..\..\..\SC\mfc\include\32-bit\afxcoll.h ..\..\..\..\..\SC\mfc\include\afxstat_.h  \
+		..\..\..\..\..\SC\mfc\include\32-bit\afxstat_.h ..\..\..\..\..\SC\mfc\include\afxtls_.h ..\..\..\..\..\SC\mfc\include\32-bit\afxtls_.h ..\..\..\..\..\SC\include\shellapi.h  \
+		..\..\..\..\..\SC\include\win32\shellapi.h ..\..\..\..\..\SC\mfc\include\afxres.h ..\..\..\..\..\SC\mfc\include\32-bit\afxres.h ..\..\..\..\..\SC\mfc\include\afxmsg_.h  \
+		..\..\..\..\..\SC\mfc\include\32-bit\afxmsg_.h ..\..\..\..\..\SC\mfc\include\afxdd_.h ..\..\..\..\..\SC\mfc\include\32-bit\afxdd_.h ..\..\..\..\..\SC\mfc\include\afxext.h  \
+		..\..\..\..\..\SC\mfc\include\32-bit\afxext.h ..\..\..\..\..\SC\mfc\include\afxdlgs.h ..\..\..\..\..\SC\mfc\include\32-bit\afxdlgs.h ..\..\..\..\..\SC\include\commdlg.h  \
+		..\..\..\..\..\SC\include\win32\COMMDLG.H ..\..\..\..\..\SC\include\richedit.h ..\..\..\..\..\SC\include\win32\RICHEDIT.H FRSHELL.h  \
+		resource.h cfrmodin.h cpathdia.h fr3ddoc.h  \
+		fr3dvw.h mainfrm.h MDIAPP.h ..\..\..\..\..\SC\include\ver.h  \
+		..\..\..\..\..\SC\include\win32\VER.H 
 
-DEFFILE		= frshell.DEF
+DEFFILE		= FRSHELL.DEF
 
 !IF $(DEBUG)
 OUTPUTDIR	= .
@@ -108,7 +106,7 @@ INCLUDES	=
 INCLUDEDOBJS	= 
 
 OBJS		= mainfrm.OBJ fr3ddoc.OBJ FRSHELL.OBJ  \
-		fr3dvw.OBJ 
+		fr3dvw.OBJ cfrmodin.OBJ cpathdia.OBJ 
 
 RCFILES		=  FRSHELL.RES 
 
@@ -172,11 +170,13 @@ BATS		=
 mainfrm.OBJ+
 fr3ddoc.OBJ+
 FRSHELL.OBJ+
-fr3dvw.OBJ
+fr3dvw.OBJ+
+cfrmodin.OBJ+
+cpathdia.OBJ
 $$SCW$$.EXE
 NUL
 KERNEL32.LIB GDI32.LIB USER32.LIB 
-frshell.DEF;
+FRSHELL.DEF;
 <<
 !ELSE
 .OBJ.EXE:
@@ -185,11 +185,13 @@ frshell.DEF;
 mainfrm.OBJ+
 fr3ddoc.OBJ+
 FRSHELL.OBJ+
-fr3dvw.OBJ
+fr3dvw.OBJ+
+cfrmodin.OBJ+
+cpathdia.OBJ
 $$SCW$$.EXE
 NUL
 KERNEL32.LIB GDI32.LIB USER32.LIB 
-frshell.DEF;
+FRSHELL.DEF;
 <<
 !ENDIF
 
@@ -233,11 +235,13 @@ $(TARGETDIR)\$(PROJ).$(PROJTYPE): $(SYMS) $(OBJS) $(INCLUDEDOBJS) $(RCFILES) $(R
 mainfrm.OBJ+
 fr3ddoc.OBJ+
 FRSHELL.OBJ+
-fr3dvw.OBJ
+fr3dvw.OBJ+
+cfrmodin.OBJ+
+cpathdia.OBJ
 $$SCW$$.EXE
 NUL
 KERNEL32.LIB GDI32.LIB USER32.LIB 
-frshell.DEF;
+FRSHELL.DEF;
 <<
 !ELSE
 		$(LNK) $(LFLAGS) @<<$(PROJ).LNK
@@ -245,11 +249,13 @@ frshell.DEF;
 mainfrm.OBJ+
 fr3ddoc.OBJ+
 FRSHELL.OBJ+
-fr3dvw.OBJ
+fr3dvw.OBJ+
+cfrmodin.OBJ+
+cpathdia.OBJ
 $$SCW$$.EXE
 NUL
 KERNEL32.LIB GDI32.LIB USER32.LIB 
-frshell.DEF;
+FRSHELL.DEF;
 <<
 !ENDIF
 
@@ -285,11 +291,13 @@ link:
 mainfrm.OBJ+
 fr3ddoc.OBJ+
 FRSHELL.OBJ+
-fr3dvw.OBJ
+fr3dvw.OBJ+
+cfrmodin.OBJ+
+cpathdia.OBJ
 $$SCW$$.EXE
 NUL
 KERNEL32.LIB GDI32.LIB USER32.LIB 
-frshell.DEF;
+FRSHELL.DEF;
 <<
 !ELSE
 		$(LNK) $(LFLAGS) @<<$(PROJ).LNK
@@ -297,11 +305,13 @@ frshell.DEF;
 mainfrm.OBJ+
 fr3ddoc.OBJ+
 FRSHELL.OBJ+
-fr3dvw.OBJ
+fr3dvw.OBJ+
+cfrmodin.OBJ+
+cpathdia.OBJ
 $$SCW$$.EXE
 NUL
 KERNEL32.LIB GDI32.LIB USER32.LIB 
-frshell.DEF;
+FRSHELL.DEF;
 <<
 !ENDIF
 

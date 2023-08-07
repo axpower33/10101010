@@ -20,6 +20,9 @@ static char BASED_CODE THIS_FILE[] = __FILE__;
 //
 // CFRSHELLApp
 //
+CFrModInCndDlg FrMInCnd;
+CPATHDialog CPathDlg;
+
 BEGIN_MESSAGE_MAP(CFRSHELLApp, CWinApp)
         //{{AFX_MSG_MAP(CFRSHELLApp)
         ON_COMMAND(ID_APP_ABOUT, OnAbout)
@@ -47,8 +50,6 @@ END_MESSAGE_MAP()
 // CFRSHELLApp construction
 //
 
-CFrModInCndDlg* FrMInCnd;
-CPATHDialog* CPathDlg;
 
 CFRSHELLApp::CFRSHELLApp()
 {
@@ -56,15 +57,15 @@ CFRSHELLApp::CFRSHELLApp()
         // Most of the initialization code, however,
         // should go into CFRSHELLApp::InitInstance().
    //FrMInCnd=new CFrModInCndDlg;
-   FrMInCnd->m_Npat=50;
-   FrMInCnd->m_dt=2e-5;
-   FrMInCnd->m_Rmin=10e-7;
-   FrMInCnd->m_Rmax=30e-7;
-   FrMInCnd->m_Rmid=100e-7;
-   FrMInCnd->m_Q=30;
+   FrMInCnd.m_Npat=50;
+   FrMInCnd.m_dt=2e-5;
+   FrMInCnd.m_Rmin=10e-7;
+   FrMInCnd.m_Rmax=30e-7;
+   FrMInCnd.m_Rmid=100e-7;
+   FrMInCnd.m_Q=30;
 
    //CPathDlg = new CPATHDialog;
-   CPathDlg->m_path="DAT";
+   CPathDlg.m_path="DAT";
 }
 
 
@@ -175,9 +176,9 @@ void CFRSHELLApp::OnFrMod_InCnd()
 //{{AFX_VBX_REGISTER_MAP()
 //}}AFX_VBX_REGISTER_MAP
 
-BOOL CFRSHELLApp::OnIdle( LONG lCount )
+BOOL CFRSHELLApp::OnIdle( int lCount )
 {
-  /*  CWinApp::OnIdle( lCount );
+    CWinApp::OnIdle( lCount );
 
     int i = 5;
 

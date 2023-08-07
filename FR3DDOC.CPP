@@ -24,14 +24,16 @@ static char BASED_CODE THIS_FILE[] = __FILE__;
 // class CFR3dDoc
 //
 
-IMPLEMENT_DYNCREATE(CFR3dDoc, CDocument)
+void CFR3dDoc::CreateObject()
+{ CDocument::CreateObject();
+}
+
 
 BEGIN_MESSAGE_MAP(CFR3dDoc, CDocument)
-        //{{AFX_MSG_MAP(CFR3dDoc)
-        // Handlers within the section marked by {{AFX_MSG_MAP and }}AFX_MSG_MAP
-        // are maintained by ClassExpress.
-        //}}AFX_MSG_MAP
-
+    //{{AFX_MSG_MAP(CFR3dDoc)
+	// Handlers within the section marked by {{AFX_MSG_MAP and }}AFX_MSG_MAP
+	// are maintained by ClassExpress.
+	//}}AFX_MSG_MAPEND_MESSAGE_MAP()
 END_MESSAGE_MAP()
 
 //
@@ -94,16 +96,16 @@ BOOL CFR3dDoc::OnNewDocument()
 
 }
 
-//char* CFR3dDoc::PathToDat()
-//{
- // char path[128];
- // path[0]=0;
- // strcat(path,getcd);
- // strcat(path,"\\");
- // strcat(path,CPathDlg->m_path);
- // strcat(path,"\\");
- // return path;
-//}
+char* CFR3dDoc::PathToDat()
+{
+  char path[128];
+  path[0]=0;
+  strcat(path,getcd);
+  strcat(path,"\\");
+  strcat(path,CPathDlg->m_path);
+  strcat(path,"\\");
+  return path;
+}
 
 void CFR3dDoc::Serialize(CArchive& ar)
 {
@@ -461,7 +463,7 @@ void CFR3dDoc::SetAgrSpeed(Particle* Pi)
 { RPoint W;
   if (Pi->stop)
   {
-    //Вычисление линейной скорости частиц в агрегате }
+    //В????л?н?? л?н?йной ??о?о??? ?а???? ? а????а?? }
     int i=Pagregat[Pi->agr];
     AngleSpeed(Pi->agr,W);
     do
@@ -473,7 +475,7 @@ void CFR3dDoc::SetAgrSpeed(Particle* Pi)
   }
 }
 
-//  Добавляет j частицу к агрегату начинающемуся с i частиц
+//  До?а?л??? j ?а????? ? а????а?? на??на???м??? ? i ?а????
 void CFR3dDoc::AddPattoAgr (Particle* Pi,Particle* Pj)
 { int i,j;
   i=Pi->N;
@@ -495,7 +497,7 @@ void CFR3dDoc::AddPattoAgr (Particle* Pi,Particle* Pj)
   }
 }
 
-//      Рaздвигает две частиц
+//      ?aзд???а?? д?? ?а????
 void CFR3dDoc::PushAway (Particle*Pi,Particle* Pj )
 { float dX, dY, dZ, R;
 
@@ -618,14 +620,14 @@ void CFR3dDoc::AgrForces()
     CMass[kk].Y+=dt*CMass[kk].Vy;
     CMass[kk].Z+=dt*CMass[kk].Vz;
 
-//-------- Вычисление угла Phi --------//
+//-------- В????л?н?? ??ла Phi --------//
     RPoint phi;
     AngleSpeed(kk,phi);
     phi.X=dt*phi.X;
     phi.Y=dt*phi.Y;
     phi.Z=dt*phi.Z;
-    //  Вращение агрегата посредством преобразования координат с помощью---//
-                         //---- матрицы вращения ---//
+    //  В?а??н?? а????а?а ?о???д???ом ???о??азо?ан?? ?оо?д?на? ? ?омо???---//
+                         //---- ма????? ??а??н?? ---//
 
     i=Pagregat[kk];
     while (i)

@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include "frshell.h"
+#include "cpathdia.h"
 
 #ifdef _DEBUG
 #undef THIS_FILE
@@ -18,8 +18,7 @@ BEGIN_MESSAGE_MAP(CPATHDialog, CDialog)
     //}}AFX_MSG_MAP
 END_MESSAGE_MAP();
 
-CPATHDialog::CPATHDialog(CWnd* pParent =NULL)
-    //: CDialog(CPATHDialog::IDD, pParent)
+CPATHDialog::CPATHDialog(CWnd* pParent)/* =NULL)*/   : CDialog(CPATHDialog::IDD, pParent)
 {
 
     //{{AFX_DATA_INIT(CPATHDialog)

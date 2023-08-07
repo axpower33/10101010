@@ -3,11 +3,13 @@
 
 /////////////////////////////////////////////////////////////////////////////
 // CPATHDialog dialog
+#include "Resource.h"
 
 class CPATHDialog : public CDialog
 {
 public:
-    CPATHDialog(CWnd* pParent/* = NULL*/);    // standard constructor
+    CPATHDialog(CWnd* pParent)/* = NULL); */: CDialog(CPATHDialog::IDD, pParent);
+    // standard constructor
 
 // Dialog Data
     //{{AFX_DATA(CPATHDialog)

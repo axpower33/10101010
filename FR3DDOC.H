@@ -33,26 +33,30 @@ struct Agregat
 class CFR3dDoc : public CDocument
 {
 public:
-        virtual ~CFR3dDoc();
-        virtual void Serialize(CArchive& ar);
-        virtual void OnIdle();
+	virtual ~CFR3dDoc();
+    virtual void OnIdle();
+	virtual void Serialize(CArchive& ar);
 #ifdef _DEBUG
-        virtual void AssertValid() const;
-        virtual void Dump(CDumpContext& dc) const;
+	virtual void AssertValid() const;
+	virtual void Dump(CDumpContext& dc) const;
 #endif
 
 protected:
-        CFR3dDoc();
-        DECLARE_DYNCREATE(CFR3dDoc)
-        virtual BOOL  OnNewDocument();
-        // Message maps
-protected:
-        DECLARE_MESSAGE_MAP()
+	CFR3dDoc();
+	//DECLARE_DYNCREATE(CFR3dDoc)
+    void CreateObject();
 
-        //{{AFX_MSG(CFR3dDoc)
-        // Handlers within the section marked by {{AFX_MSG and }}AFX_MSG
-        // are maintained by ClassExpress.
-        //}}AFX_MSG
+
+	virtual BOOL	OnNewDocument();
+
+	// Message maps
+protected:
+	DECLARE_MESSAGE_MAP()
+
+	//{{AFX_MSG(CMDIAPPDoc)
+	// Handlers within the section marked by {{AFX_MSG and }}AFX_MSG
+	// are maintained by ClassExpress.
+	//}}AFX_MSG
 
     // fr3d functions
 protected:
@@ -107,6 +111,7 @@ public:
     float rangeY;
     float rangeR;
 };
+
 
 
 

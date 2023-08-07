@@ -3,37 +3,36 @@
 //
 // Interface for the application frame window
 //
-// Copyright (c) POWER Scintific, 1997. All Rights Reserved.
+// Copyright (c) XYZ Corporation, 2023. All Rights Reserved.
 //
 //
 
 class CMainFrame : public CMDIFrameWnd
 {
-        DECLARE_DYNAMIC(CMainFrame)
-
+	DECLARE_DYNAMIC(CMainFrame)
+			
 public:
-        CMainFrame();
-        virtual ~CMainFrame();
-        virtual BOOL OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
-
+	CMainFrame();				
+	virtual ~CMainFrame();
 #ifdef _DEBUG
-        virtual void AssertValid() const;
-        virtual void Dump(CDumpContext& dc) const;
+	virtual void AssertValid() const;
+	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-// Implementation
+// Implementation 
 protected:
 
-        // Member variables
-        CStatusBar      m_StatusBar;
-        CToolBar                m_ToolBar;
+	// Member variables
+	CStatusBar	m_StatusBar;
+	CToolBar		m_ToolBar;
 
-        // Message maps
+	// Message maps
 protected:
-        DECLARE_MESSAGE_MAP()
-
-        //{{AFX_MSG(CMainFrame)
-        afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
-        afx_msg void OnPaint();
-        //}}AFX_MSG
+	DECLARE_MESSAGE_MAP()
+			
+	//{{AFX_MSG(CMainFrame)
+	// Handlers within the section marked by {{AFX_MSG and }}AFX_MSG
+	// are maintained by ClassExpress.	
+	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+	//}}AFX_MSG
 };

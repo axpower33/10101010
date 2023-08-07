@@ -1,0 +1,20 @@
+@echo off
+echo // MAKEHELP.BAT generated Help Map file.  >hlp\"MDIAPP.hm"
+echo. >>hlp\"MDIAPP.hm"
+echo // Commands (ID_* and IDM_*) >>hlp\"MDIAPP.hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h >>hlp\"MDIAPP.hm"
+echo. >>hlp\"MDIAPP.hm"
+echo // Prompts (IDP_*) >>hlp\"MDIAPP.hm"
+makehm IDP_,HIDP_,0x30000 resource.h >>hlp\"MDIAPP.hm"
+echo. >>hlp\"MDIAPP.hm"
+echo // Resources (IDR_*) >>hlp\"MDIAPP.hm"
+makehm IDR_,HIDR_,0x20000 resource.h >>hlp\"MDIAPP.hm"
+echo. >>hlp\"MDIAPP.hm"
+echo // Dialogs (IDD_*) >>hlp\"MDIAPP.hm"
+makehm IDD_,HIDD_,0x20000 resource.h >>hlp\"MDIAPP.hm"
+echo. >>hlp\"MDIAPP.hm"
+echo // Frame Controls (IDW_*) >>hlp\"MDIAPP.hm"
+makehm IDW_,HIDW_,0x50000 resource.h >>hlp\"MDIAPP.hm"
+REM -- Make help for project 
+call hc31 "MDIAPP.hpj"
+echo.

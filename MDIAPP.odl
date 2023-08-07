@@ -1,0 +1,44 @@
+/*
+ *MDIAPP.odl
+*/
+
+[
+	uuid(C1D1B567-BA3D-4A50-818B-C7B3858E558F),
+	version(1.0)
+]
+
+library CMDIAPPDocLibrary
+{
+	importlib("stdole32.tlb");
+
+	//{{AFX_ODL_CLASS
+
+	[
+		uuid(A5D608DD-41C0-401D-A8AA-0D65F6FB5178),
+	]
+	dispinterface CMDIAPPDoc
+	{
+		properties:
+		//	NOTE -  ClassExpress will overwrite property information here.
+		//			Do not edit this section.
+		//{{AFX_ODL_PROP(CMDIAPPDoc)
+		//}}AFX_ODL_PROP
+
+		methods:
+		//	NOTE -  ClassExpress will maintain method information here.
+		//			Do not edit this section.
+		//{{AFX_ODL_METHOD(CMDIAPPDoc)
+		//}}AFX_ODL_METHOD
+
+	}
+
+	//}}AFX_ODL_CLASS
+
+	[
+		uuid(4729D6D8-37E7-46F3-963C-5FD8913DAB81),
+	]
+	coclass _CMDIAPPDoc
+	{
+		dispinterface CMDIAPPDoc;
+	}
+}

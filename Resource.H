@@ -29,3 +29,5 @@
 #define IDC_TABCONTROL1                                3003
 #define IDD_PATH                                        104
 #define ID_PathDlg                                        4000
+#define IDD_DIALOG2                                     106
+#define IDM_ITEM1                                     32768
